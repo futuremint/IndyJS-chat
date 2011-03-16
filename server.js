@@ -1,4 +1,4 @@
-var version = '0.0.2',
+var version = '0.0.3',
     http = require('http'), 
       io = require('socket.io'),
       db = require('./db'),
@@ -7,8 +7,8 @@ var version = '0.0.2',
 
 // Express config
 app.configure( function(){
-  app.use( express.staticProvider( __dirname+"/public" ) );
-  app.use( express.bodyDecoder() );
+  app.use( express.static( __dirname+"/public" ) );
+  app.use( express.bodyParser() );
   app.use( express.logger( {format: ':method :url :response-timems'} ) );
   app.use( app.router ); } );
 
@@ -33,12 +33,12 @@ socket.on( 'connection', function(client){
   // Retrieve the user list from CouchDB and send it to the client
   db.view( 'users/all', {include_docs: true}, function(err, rows){
     var list = [];
-    rows.forEach( function(row){ list.push( row ); } );
+    if (rows) rows.forEach( function(row){ list.push( row ); } );
     client.send( {users: list} );
 
     // Send a few latest chats to the client
     db.view( 'chats/all', {include_docs: true}, function(err, rows){
-      rows.forEach( function(row){ client.send( row ) } ); } ) } )
+      if (rows) rows.forEach( function(row){ client.send( row ) } ); } ) } )
 
   client.on( 'message', function(data){ 
     
@@ -53,7 +53,7 @@ socket.on( 'connection', function(client){
       db.post(user, function(err, res){
         db.view( 'users/all', {include_docs: true}, function(err, rows){
           var list = [];
-          rows.forEach( function(row){ list.push( row ); } );
+          if (rows) rows.forEach( function(row){ list.push( row ); } );
           client.send( {users: list} );
           // Also update everyone else's user lists
           client.broadcast( {users: list} ); } ) } ) } } );
