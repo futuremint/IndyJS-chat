@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>CouchDB + node.js chat demo</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+    <script src="/underscore-min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/chat.js"></script>
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+  </head>
+  <body>
+    <div id="content">
+      <div id="messages"><p>Connecting...</p></div>
+      <div id="users">
+        <h3>Users</h3>
+        <ul></ul>
+        <form id="add">
+          <input type="text" size="26" id="add-name" />
+          <input type="submit" value="Add your name" />
+        </form>
+      </div>
+      <div id="chats">
+        <h3>Chats</h3>
+        <div>
+          <table>
+
+          </table>
+        </div>
+      </div>
+      <p id="name"></p>
+      <form id="talk">
+        <input type="text" size="111" id="chat-text" />
+        <input type="submit" value="Send" />
+      </form>
+    </div>
+  </body>
+</html>
