@@ -3,19 +3,19 @@ var  cradle = require('cradle'),
    cloudant = {
      host: 'https://futuremint.cloudant.com',
      port: '443',
-     auth: { username: process.env['DB_USER'], password: process.env['DB_PASS']} },
+     auth: { username: process.env.DB_USER, password: process.env.DB_PASS} },
 
       local = {
         host: 'localhost',
         port: '5984',
-        auth: { username: process.env['DB_USER'], password: process.env['DB_PASS'] } },
+        auth: { username: process.env.DB_USER, password: process.env.DB_PASS } },
 
          db = new(cradle.Connection)(cloudant).database('node-demo');
 
 // Views
 var add_view = function(name, doc){
   db.get('_design/'+name, function(err, rs){
-    if(err && err.error == 'not_found') db.save('_design/'+name, doc); } ) };
+    if(err && err.error == 'not_found') db.save('_design/'+name, doc); } ); };
 
 // Users view
 add_view('users', {
@@ -51,4 +51,4 @@ add_view('chats', {
     //   return arr; }
  } } );
 
-module.exports = db
+module.exports = db;

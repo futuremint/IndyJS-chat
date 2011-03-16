@@ -5,22 +5,22 @@ $(function($){
   niceTime = function(epoch){
     if (epoch === undefined) return '';
     var d = new Date(epoch);
-    return (d.getMonth()+1).toString()+'/'+d.getDate()+' '+d.getHours()+':'+d.getMinutes() }
+    return (d.getMonth()+1).toString()+'/'+d.getDate()+' '+d.getHours()+':'+d.getMinutes(); },
 
   // UI stuff
   message = function(msg){
     $('#messages').html( '<p>'+msg+'</p>' );
-    setTimeout( function(){$('#messages p').fadeOut('fast')}, 7000 ); },
+    setTimeout( function(){$('#messages p').fadeOut('fast');}, 7000 ); },
 
   showName = function(){
-    $('#name').html('You are known as <strong>'+user+'</strong>') },
+    $('#name').html('You are known as <strong>'+user+'</strong>'); },
   
   setName = function(name){
     user = name;
-    showName()},
+    showName(); },
 
   scrollChatWindow = function(){
-    $('#chats div').scrollTop($('#chats div table tr').length * 24) },
+    $('#chats div').scrollTop($('#chats div table tr').length * 24); },
 
   showUserList = function(list){
     var userList = $('#users ul');
@@ -36,22 +36,22 @@ $(function($){
       hide().
       appendTo('#chats table').
       fadeIn('fast');
-      scrollChatWindow() };
+      scrollChatWindow(); };
 
   // Socket.IO stuff
   socket.connect();
-  socket.on( "connect", function(){ message('Connected.') } )
+  socket.on( "connect", function(){ message('Connected.'); } );
   socket.on( "message", function(data){
     if ( 'users' in data ) showUserList( data.users );
-    if ( 'type' in data && data.type == 'chat' ) showChat( data ); } )
-  socket.on( "disconnect", function(){ message('Disconnected!') } ) 
+    if ( 'type' in data && data.type == 'chat' ) showChat( data ); } );
+  socket.on( "disconnect", function(){ message('Disconnected!'); } );
 
   // Wire up interactivity
   $('#talk').bind('submit', function(e){
     var chat_field = $('#chat-text');
     e.preventDefault();
     socket.send( {chat: chat_field.val(), user: user } );
-    chat_field.val('')
+    chat_field.val('');
   });
 
   $('#add').bind('submit', function(e){
@@ -59,12 +59,12 @@ $(function($){
     e.preventDefault();
     socket.send( {addUser: name_field.val()} );
     setName(name_field.val());
-    name_field.val('')
+    name_field.val('');
   });
 
   $('#users ul').click(function(e){
     var el = $(e.target);
-    setName(el.text())
+    setName(el.text());
   });
   showName();
-} )
+} );
