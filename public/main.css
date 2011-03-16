@@ -1,0 +1,103 @@
+body, div, p, ul, li, form, input, label, h1, h2, h3 { margin: 0; padding: 0 }
+body {
+   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+   font-weight: 300;
+   font-size: 16px;
+   line-height: 24px;
+   padding: 0 5%;
+   background: #aaa;
+}
+li {
+   list-style: none;
+}
+strong {
+   font-weight: 600
+}
+#content {
+   border: solid;
+   border-color: #eee #ccc #aaa;
+   border-width: 0px 1px 1px;
+   background: #eee;
+   padding-top: 0.5em;
+   margin: 0px auto;
+   width: 900px;
+}
+#messages {
+   height: 1.5em;
+   border: 1px solid;
+   border-color: #aaa #ccc #fff;
+   background: #ddd;
+   border-radius: 6px;
+   color: #777;
+   margin: 1em 2em;
+   padding: 0.6em 0.2em 0.2em 0.6em;
+   text-shadow: #eee 1px 1px;
+}
+div h3 {
+   color: #777;
+   text-shadow: #eee 1px 1px;
+}
+#users {
+   border: 1px solid;
+   border-color: #aaa #ccc #fff;
+   background: #ddd;
+   border-radius: 6px;
+   float: left;
+   margin: 0 2em;
+   padding: 0.2em 0.2em 0.2em 0.6em;
+   width: 160px;
+}
+#chats {
+   border: 1px solid;
+   border-color: #aaa #ccc #fff;
+   background: #ddd;
+   border-radius: 6px;
+   margin: 1em 2em 1em 240px;
+   padding: 0.2em 0.2em 0.2em 0.6em;
+   width: 614px;
+}
+#chats div {
+   height: 400px;
+   overflow: hidden;
+   overflow-y: scroll;
+}
+#chats table td {
+   width: 500px;
+}
+#chats table td:first-child {
+   width: 80px;
+   padding-right: 8px;
+   color: #999;
+}
+#chats table td:last-child {
+   width: 80px;
+   padding-left: 8px;
+   color: #999;
+}
+#add {
+   border-top: 1px solid #ddd;
+   padding-top: 0.4em
+}
+#add-name{
+   width: 150px
+}
+#name {
+   margin: -28px 0 -60px 0.6em;
+   clear: left;
+   float: left;
+   display: block;
+   padding: 0.2em 0.2em 0.2em 0.6em;
+   width: 160px;
+}
+#talk {
+   clear:both;
+   margin: 0 0 2em 240px;
+}
+#chat-text{
+   width: 580px
+}
+input[type='text'] {
+   height: 1.8em;
+   color: #555;
+   border-radius: 6px
+}
