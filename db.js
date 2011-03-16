@@ -1,16 +1,11 @@
-var  cradle = require('cradle'),
-
-   cloudant = {
-     host: 'https://futuremint.cloudant.com',
-     port: '443',
-     auth: { username: process.env.DB_USER, password: process.env.DB_PASS} },
-
-      local = {
-        host: 'localhost',
-        port: '5984',
-        auth: { username: process.env.DB_USER, password: process.env.DB_PASS } },
-
-         db = new(cradle.Connection)(cloudant).database('node-demo');
+var     cradle = require('cradle'),
+         creds = require('./creds.js')
+  couch_config = {
+    host: creds.db_host,
+    port: creds.db_port,
+    auth: { username: creds.db_name, password: creds.db_pass },
+    
+            db = new(cradle.Connection)(couch_config).database('node-demo');
 
 // Views
 var add_view = function(name, doc){
