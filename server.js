@@ -27,7 +27,7 @@ app.configure( 'production', function(){
 app.listen(3000);
 
 // Socket.IO
-var socket = io.listen(app),
+var socket = io.listen(app);
 socket.on( 'connection', function(client){
   // Retrieve the user list from CouchDB and send it to the client
   db.view( 'users/all', {include_docs: true}, function(err, rows){

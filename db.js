@@ -51,4 +51,4 @@ add_view('chats', {
     //   return arr; }
  } } );
 
-module.exports = db 
+module.exports = db
