@@ -1,4 +1,4 @@
-var version = '0.0.1',
+var version = '0.0.2',
     http = require('http'), 
       io = require('socket.io'),
       db = require('./db'),
