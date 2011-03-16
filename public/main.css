@@ -78,6 +78,9 @@ div h3 {
    border-top: 1px solid #ddd;
    padding-top: 0.4em
 }
+#add-name{
+   width: 150px
+}
 #name {
    margin: -28px 0 -60px 0.6em;
    clear: left;
@@ -89,6 +92,9 @@ div h3 {
 #talk {
    clear:both;
    margin: 0 0 2em 240px;
+}
+#chat-text{
+   width: 580px
 }
 input[type='text'] {
    height: 1.8em;
