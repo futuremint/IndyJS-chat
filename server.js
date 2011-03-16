@@ -1,4 +1,5 @@
-var http = require('http'), 
+var version = '0.0.1',
+    http = require('http'), 
       io = require('socket.io'),
       db = require('./db'),
  express = require('express'),
