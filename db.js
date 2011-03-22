@@ -3,7 +3,7 @@ var     cradle = require('cradle'),
   couch_config = {
     host: creds.db_host,
     port: creds.db_port,
-    auth: { username: creds.db_name, password: creds.db_pass },
+    auth: { username: creds.db_name, password: creds.db_pass } },
     
             db = new(cradle.Connection)(couch_config).database('node-demo');
 
