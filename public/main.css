@@ -1,4 +1,4 @@
-body, div, p, ul, li, form, input, label, h1, h2, h3 { margin: 0; padding: 0 }
+body, div, p, ul, li, form, input, label, h1, h2, h3, h4 { margin: 0; padding: 0 }
 body {
    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
    font-weight: 300;
@@ -37,6 +37,16 @@ div h3 {
    color: #777;
    text-shadow: #eee 1px 1px;
 }
+#content>h3 {
+   padding: 0 2em 0.4em;
+   text-shadow: #fff 1px 1px;
+   border-bottom: 1px solid #ddd;
+}
+#content>h4 {
+   color: #888;
+   font-weight: 300;
+   margin: 0.6em 0 0 2em;
+}
 #users {
    border: 1px solid;
    border-color: #aaa #ccc #fff;
@@ -70,7 +80,8 @@ div h3 {
    color: #999;
 }
 #chats table td:last-child {
-   width: 80px;
+   width: 90px;
+   font-size: 90%;
    padding-left: 8px;
    color: #999;
 }
