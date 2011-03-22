@@ -43,6 +43,10 @@ $(function($){
   socket.on( "connect", function(){ message('Connected.'); } );
   socket.on( "message", function(data){
     if ( 'users' in data ) showUserList( data.users );
+    if ('history' in data ) {
+      data.history.sort( function(a, b){ return( a.doc.timestamp > b.doc.timestamp ) } );
+      _.map( data.history, function(chat){ showChat( chat.doc ) } );
+    }
     if ( 'type' in data && data.type == 'chat' ) showChat( data ); } );
   socket.on( "disconnect", function(){ message('Disconnected!'); } );
 

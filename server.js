@@ -38,7 +38,9 @@ socket.on( 'connection', function(client){
 
     // Send a few latest chats to the client
     db.view( 'chats/all', {include_docs: true}, function(err, rows){
-      if (rows) rows.forEach( function(row){ client.send( row ); } ); } ); } );
+      if (rows) {
+        client.send( {history: rows} );
+      } } ); } );
 
   client.on( 'message', function(data){ 
     
